@@ -1,0 +1,47 @@
+Name: "Lua"
+Details: "The Lua programming language"
+Extension: ".lua"
+Suppress Disclaimer: false
+
+Multiline Comment Open: "--[["
+Multiline Comment Close: "]]"
+Line Comment: "--"
+
+String Literal: "\""
+String Literal Escape: "\\"
+
+Hexadecimal Literal Prefix: "0x"
+Binary Literal Prefix: "0b"
+Negative Literal Prefix: "-"
+
+Shebang: "#!/usr/bin/env lua\n\n"
+
+Before Named Paragraph Expansion: "\ndo\n"
+After Named Paragraph Expansion: "end\n"
+
+Start Definition: "local %S <const> =\s"
+End Definition: "\n"
+
+Function Declaration Notation: /function \.([A-Za-z_][A-Za-z0-9_]*) =.*/
+
+keyword and
+keyword break
+keyword do
+keyword else
+keyword elseif
+keyword end
+keyword "false"
+keyword for
+keyword function
+keyword if
+keyword "in"
+keyword local
+keyword nil
+keyword "not"
+keyword or
+keyword repeat
+keyword return
+keyword then
+keyword "true"
+keyword until
+keyword while

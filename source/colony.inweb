@@ -1,0 +1,16 @@
+Colony {
+    default: pattern "GitHubPages" breadcrumbs "Panform: //Panform//"
+
+    member: "Panform" at "../README.md" to "index.html" breadcrumbs ""
+    member: "inform7" at "inform7.inweb" to "inform7.html"
+
+    Navigation {
+        [[Item "Panform"]]
+        [[Item "inform7"]]
+        [[Menu "Repository"]]
+        [[Item "<github.png@15> GitHub" -> https://github.com/tobiasvl/inform.md]]
+        [[Menu "Related projects"]]
+        [[Item "Inform" -> https://ganelson.github.io/inform/]]
+        [[Item "Inweb" -> https://ganelson.github.io/inweb/]]
+    }
+}
