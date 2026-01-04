@@ -3,10 +3,14 @@ Colony {
 
     member: "Panform" at "../README.md" to "index.html" breadcrumbs ""
     member: "inform7" at "inform7.inweb" to "inform7.html"
+    member: "IFM" at "ifm.inweb" to "ifm.html"
+    member: "IWFM" at "iwfm.inweb" to "iwfm.html"
 
     Navigation {
         [[Item "Panform"]]
         [[Item "inform7"]]
+        [[Item "IFM"]]
+        [[Item "IWFM"]]
         [[Menu "Repository"]]
         [[Item "<github.png@15> GitHub" -> https://github.com/tobiasvl/inform.md]]
         [[Menu "Related projects"]]

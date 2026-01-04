@@ -1,0 +1,14 @@
+Title: Inform-flavoured Markdown
+Author: Tobias Langhoff
+Purpose: Inform-flavoured Markdown reader for Pandoc
+Language: Lua
+
+@h Inform-flavoured Markdown.
+
+The [foundation](https://ganelson.github.io/inweb/foundation-module/#5) library for [Inweb](https://ganelson.github.io/inweb/) defines a custom Markdown variant
+called [Inform-flavoured Markdown](https://ganelson.github.io/inweb/foundation-module/5-im.html)
+(IFM), which is designed to be used for writing Inform 7 documentation.
+
+This Pandoc reader parses IFM.
+
+=

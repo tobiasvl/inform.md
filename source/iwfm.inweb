@@ -1,0 +1,14 @@
+Title: Inweb-flavoured Markdown
+Author: Tobias Langhoff
+Purpose: Inweb-flavoured Markdown reader for Pandoc
+Language: Lua
+
+@h Inweb-flavoured Markdown.
+
+The [foundation](https://ganelson.github.io/inweb/foundation-module/#5) library for [Inweb](https://ganelson.github.io/inweb/) defines a custom Markdown variant
+called [Inweb-flavoured Markdown](https://ganelson.github.io/inweb/foundation-module/5-mv.html)
+(IWFM), which is used to write Inweb webs.
+
+This Pandoc reader parses IWFM.
+
+=
