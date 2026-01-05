@@ -23,3 +23,5 @@ Then, to build the documentation ("weave" the web):
 ```
 inweb weave
 ```
+
+Note that the documentation will end up in `docs/`, which is a symlink to `../docs/`. The reason for this is that Inweb easily gets confused with relative paths.

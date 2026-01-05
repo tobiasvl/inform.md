@@ -35,7 +35,7 @@ Writer.Inline.Space = function(str)
 	return " "
 end
 
--- TODO This probably doesn"t work
+-- TODO This probably doesn't work
 -- Writer.Inline.SoftBreak = function(str)
 -- 	return "\n\t"
 -- end

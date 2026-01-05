@@ -5,9 +5,12 @@ Language: Lua
 
 @h Foo.
 
+@ First, we avoid some boilerplate using the //scaffolding -> https://pandoc.org/lua-filters.html#module-pandoc.scaffolding// module.
 =
 Writer = pandoc.scaffolding.Writer
 
+@ Then we detect whether we are writing an Inform 7 story or extension.
+=
 for _, i in ipairs(PANDOC_STATE.input_files) do
 	local ext = pandoc.List(i:gmatch "[^%.]+"):at(-2)
 	if ext == "ni" or ext == "i7" then i7_story = true end
@@ -21,8 +24,16 @@ Writer.Extensions = {
 	lists_without_preceding_blankline = true,
 }
 
+@ We keep track of whether we are inside a quote, to handle bracket syntax.
+=
 local insidequote = false
 
+@ Then we come to the parsing.
+
+@h Strings.
+
+Text is just text, but if it contains unbalanced quotes, we toggle the insidequote state.
+=
 Writer.Inline.Str = function(str)
 	if (str.text:find("^\"") or str.text:find("\"$")) and not str.text:find("^\"[^\"]*\"$") then
 		insidequote = not insidequote
@@ -41,7 +52,7 @@ Writer.Inline.Space = function(str)
 	return " "
 end
 
--- TODO This probably doesn"t work
+-- TODO This probably doesn't work
 -- Writer.Inline.SoftBreak = function(str)
 -- 	return "\n\t"
 -- end
