@@ -114,7 +114,7 @@ Writer.Block.Header = function(h)
 			if h1 == 1 then
 				return Writer.Inlines(h.content) .. " begins here."
 			elseif h1 == 1 then
-				return "---- Documentation ----"
+				return string.rep("-", 4) .." Documentation " .. string.rep("-", 4)
 			else
 				error("Only two top-level headings allowed in Inform 7 extensions (it should be used for the extension title and, optionally, the documentation header).")
 			end
