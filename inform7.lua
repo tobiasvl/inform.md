@@ -1,5 +1,3 @@
-#!/usr/bin/env lua
-
 Writer = pandoc.scaffolding.Writer
 
 for _, i in ipairs(PANDOC_STATE.input_files) do

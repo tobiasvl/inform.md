@@ -14,8 +14,6 @@ Hexadecimal Literal Prefix: "0x"
 Binary Literal Prefix: "0b"
 Negative Literal Prefix: "-"
 
-Shebang: "#!/usr/bin/env lua\n\n"
-
 Before Named Paragraph Expansion: "\ndo\n"
 After Named Paragraph Expansion: "end\n"
 
