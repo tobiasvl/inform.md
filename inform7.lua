@@ -1,3 +1,13 @@
+Reader = {}
+setmetatable(Reader, Reader)
+
+Reader.__call = function(input, opts)
+end
+
+function Reader(input, opts)
+    return pandoc.Doc({pandoc.Str(input)})
+end
+
 Writer = pandoc.scaffolding.Writer
 
 for _, i in ipairs(PANDOC_STATE.input_files) do
@@ -133,14 +143,4 @@ Writer.Blocks = function(blocks, sep)
 end
 
 
-
-Reader = {}
-setmetatable(Reader, Reader)
-
-Reader.__call = function(input, opts)
-end
-
-function Reader(input, opts)
-    return pandoc.Doc({pandoc.Str(input)})
-end
 

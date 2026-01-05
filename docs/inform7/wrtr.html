@@ -34,17 +34,22 @@
     <ul class="crumbs"><li><a href="../index.html">Panform</a></li><li><a href="index.html">inform7</a></li><li><b>Writer</b></li></ul></div>
 <p class="purpose">A Pandoc writer.</p>
 
-<ul class="toc"><li><a href="wrtr.html#SP1">&#167;1. Setup</a></li><li><a href="wrtr.html#SP5">&#167;5. Plain content</a></li><li><a href="wrtr.html#SP6">&#167;6. Strings</a></li><li><a href="wrtr.html#SP7">&#167;7. Quoted</a></li><li><a href="wrtr.html#SP8">&#167;8. Inline code</a></li><li><a href="wrtr.html#SP9">&#167;9. Comments</a></li><li><a href="wrtr.html#SP10">&#167;10. Code blocks</a></li><li><a href="wrtr.html#SP11">&#167;11. Headings</a></li><li><a href="wrtr.html#SP13">&#167;13. Lists</a></li></ul><hr class="tocbar">
+<ul class="toc"><li><a href="wrtr.html#SP1">&#167;1. Usage</a></li><li><a href="wrtr.html#SP2">&#167;2. Setup</a></li><li><a href="wrtr.html#SP6">&#167;6. Plain content</a></li><li><a href="wrtr.html#SP7">&#167;7. Strings</a></li><li><a href="wrtr.html#SP8">&#167;8. Quoted</a></li><li><a href="wrtr.html#SP9">&#167;9. Inline code</a></li><li><a href="wrtr.html#SP10">&#167;10. Comments</a></li><li><a href="wrtr.html#SP11">&#167;11. Code blocks</a></li><li><a href="wrtr.html#SP12">&#167;12. Headings</a></li><li><a href="wrtr.html#SP14">&#167;14. Lists</a></li></ul><hr class="tocbar">
 
-<p class="commentary firstcommentary"><a id="SP1" class="paragraph-anchor"></a><b>&#167;1. Setup.</b></p>
+<p class="commentary firstcommentary"><a id="SP1" class="paragraph-anchor"></a><b>&#167;1. Usage.</b></p>
 
-<p class="commentary firstcommentary"><a id="SP2" class="paragraph-anchor"></a><b>&#167;2. </b>First, we avoid some boilerplate using the <a href="https://pandoc.org/lua-filters.html#module-pandoc.scaffolding" class="external">scaffolding</a> module.
+<pre class="displayed-code all-displayed-code code-font">
+<span class="identifier-syntax">pandoc</span><span class="plain-syntax"> </span><span class="comment-syntax">from=markdown+lists_without_preceding_blankline-smart --to=inform7.lua "examples/Cloak of Darkness.ni.md"</span>
+</pre>
+<p class="commentary firstcommentary"><a id="SP2" class="paragraph-anchor"></a><b>&#167;2. Setup.</b></p>
+
+<p class="commentary firstcommentary"><a id="SP3" class="paragraph-anchor"></a><b>&#167;3. </b>First, we avoid some boilerplate using the <a href="https://pandoc.org/lua-filters.html#module-pandoc.scaffolding" class="external">scaffolding</a> module.
 </p>
 
 <pre class="displayed-code all-displayed-code code-font">
 <span class="identifier-syntax">Writer</span><span class="plain-syntax"> = </span><span class="identifier-syntax">pandoc</span><span class="plain-syntax">.</span><span class="identifier-syntax">scaffolding</span><span class="plain-syntax">.</span><span class="identifier-syntax">Writer</span>
 </pre>
-<p class="commentary firstcommentary"><a id="SP3" class="paragraph-anchor"></a><b>&#167;3. </b>Then we detect whether we are writing an Inform 7 story or extension.
+<p class="commentary firstcommentary"><a id="SP4" class="paragraph-anchor"></a><b>&#167;4. </b>Then we detect whether we are writing an Inform 7 story or extension.
 </p>
 
 <pre class="displayed-code all-displayed-code code-font">
@@ -61,10 +66,10 @@
 <span class="plain-syntax">    </span><span class="identifier-syntax">lists_without_preceding_blankline</span><span class="plain-syntax"> = </span><span class="identifier-syntax">true</span><span class="plain-syntax">,</span>
 <span class="plain-syntax">}</span>
 </pre>
-<p class="commentary firstcommentary"><a id="SP4" class="paragraph-anchor"></a><b>&#167;4. </b>Then we come to the parsing.
+<p class="commentary firstcommentary"><a id="SP5" class="paragraph-anchor"></a><b>&#167;5. </b>Then we come to the parsing.
 </p>
 
-<p class="commentary firstcommentary"><a id="SP5" class="paragraph-anchor"></a><b>&#167;5. Plain content.</b>What it says on the tin.
+<p class="commentary firstcommentary"><a id="SP6" class="paragraph-anchor"></a><b>&#167;6. Plain content.</b>What it says on the tin.
 </p>
 
 <pre class="displayed-code all-displayed-code code-font">
@@ -85,7 +90,7 @@
 <span class="plain-syntax">    </span><span class="identifier-syntax">return</span><span class="plain-syntax"> </span><span class="string-syntax">"\n"</span>
 <span class="identifier-syntax">end</span>
 </pre>
-<p class="commentary firstcommentary"><a id="SP6" class="paragraph-anchor"></a><b>&#167;6. Strings.</b>We keep track of whether we are inside a quote, to handle bracket syntax.
+<p class="commentary firstcommentary"><a id="SP7" class="paragraph-anchor"></a><b>&#167;7. Strings.</b>We keep track of whether we are inside a quote, to handle bracket syntax.
 </p>
 
 <pre class="displayed-code all-displayed-code code-font">
@@ -98,7 +103,7 @@
 <span class="plain-syntax">    </span><span class="identifier-syntax">return</span><span class="plain-syntax"> </span><span class="identifier-syntax">str</span><span class="plain-syntax">.</span><span class="identifier-syntax">text</span>
 <span class="identifier-syntax">end</span>
 </pre>
-<p class="commentary firstcommentary"><a id="SP7" class="paragraph-anchor"></a><b>&#167;7. Quoted.</b>And this does the same, but for quoted text in a document with smart quotes.
+<p class="commentary firstcommentary"><a id="SP8" class="paragraph-anchor"></a><b>&#167;8. Quoted.</b>And this does the same, but for quoted text in a document with smart quotes.
 (It's best to read in Inform 7 source with smart quotes disabled, but we
 support it anyway.)
 </p>
@@ -111,7 +116,7 @@ support it anyway.)
 <span class="plain-syntax">    </span><span class="identifier-syntax">return</span><span class="plain-syntax"> </span><span class="string-syntax">"\""</span><span class="plain-syntax"> .. </span><span class="identifier-syntax">result</span><span class="plain-syntax"> .. </span><span class="string-syntax">"\""</span>
 <span class="identifier-syntax">end</span>
 </pre>
-<p class="commentary firstcommentary"><a id="SP8" class="paragraph-anchor"></a><b>&#167;8. Inline code.</b>We use inline code spans for two things: Text substitutions (inside quotes) and
+<p class="commentary firstcommentary"><a id="SP9" class="paragraph-anchor"></a><b>&#167;9. Inline code.</b>We use inline code spans for two things: Text substitutions (inside quotes) and
 Inform 6 code (outside quotes).
 </p>
 
@@ -124,7 +129,7 @@ Inform 6 code (outside quotes).
 <span class="plain-syntax">    </span><span class="identifier-syntax">end</span>
 <span class="identifier-syntax">end</span>
 </pre>
-<p class="commentary firstcommentary"><a id="SP9" class="paragraph-anchor"></a><b>&#167;9. Comments.</b>Inform 7 comments are written as square brackets. We can support a few different
+<p class="commentary firstcommentary"><a id="SP10" class="paragraph-anchor"></a><b>&#167;10. Comments.</b>Inform 7 comments are written as square brackets. We can support a few different
 markup elements as comments, like strikeout/strikethrough (for code that's
 commented out) and block quotes (for explanatory comments).
 </p>
@@ -138,7 +143,7 @@ commented out) and block quotes (for explanatory comments).
 <span class="plain-syntax">    </span><span class="identifier-syntax">return</span><span class="plain-syntax"> </span><span class="string-syntax">"[\n"</span><span class="plain-syntax"> .. </span><span class="identifier-syntax">Writer</span><span class="plain-syntax">.</span><span class="identifier-syntax">Blocks</span><span class="plain-syntax">(</span><span class="identifier-syntax">bq</span><span class="plain-syntax">.</span><span class="identifier-syntax">content</span><span class="plain-syntax">) .. </span><span class="string-syntax">"\n]"</span>
 <span class="identifier-syntax">end</span>
 </pre>
-<p class="commentary firstcommentary"><a id="SP10" class="paragraph-anchor"></a><b>&#167;10. Code blocks.</b>Code blocks in Inform 7 are either included Inform 6 code, or Preform grammar.
+<p class="commentary firstcommentary"><a id="SP11" class="paragraph-anchor"></a><b>&#167;11. Code blocks.</b>Code blocks in Inform 7 are either included Inform 6 code, or Preform grammar.
 </p>
 
 <pre class="displayed-code all-displayed-code code-font">
@@ -152,7 +157,7 @@ commented out) and block quotes (for explanatory comments).
 <span class="plain-syntax">    </span><span class="identifier-syntax">return</span><span class="plain-syntax"> </span><span class="string-syntax">"Include (-\n"</span><span class="plain-syntax"> .. </span><span class="identifier-syntax">code</span><span class="plain-syntax">.</span><span class="identifier-syntax">text</span><span class="plain-syntax"> .. </span><span class="string-syntax">"\n-)"</span><span class="plain-syntax"> .. </span><span class="identifier-syntax">after</span><span class="plain-syntax"> .. </span><span class="string-syntax">"."</span>
 <span class="identifier-syntax">end</span>
 </pre>
-<p class="commentary firstcommentary"><a id="SP11" class="paragraph-anchor"></a><b>&#167;11. Headings.</b>Markdown has 6 heading levels. Inform 7 has 5, but it also has a story title.
+<p class="commentary firstcommentary"><a id="SP12" class="paragraph-anchor"></a><b>&#167;12. Headings.</b>Markdown has 6 heading levels. Inform 7 has 5, but it also has a story title.
 </p>
 
 <p class="commentary">A mnemonic to remember the levels is "Very Bad People Choose Sin".
@@ -167,7 +172,7 @@ commented out) and block quotes (for explanatory comments).
 <span class="plain-syntax">    </span><span class="string-syntax">"Section"</span>
 <span class="plain-syntax">}</span>
 </pre>
-<p class="commentary firstcommentary"><a id="SP12" class="paragraph-anchor"></a><b>&#167;12. </b>Then we convert the headings, keeping track of how many top-level headings we
+<p class="commentary firstcommentary"><a id="SP13" class="paragraph-anchor"></a><b>&#167;13. </b>Then we convert the headings, keeping track of how many top-level headings we
 have seen, to avoid converting a document with more than one story title.
 </p>
 
@@ -197,7 +202,7 @@ have seen, to avoid converting a document with more than one story title.
 <span class="plain-syntax">    </span><span class="identifier-syntax">return</span><span class="plain-syntax"> </span><span class="identifier-syntax">levels</span><span class="plain-syntax">[</span><span class="identifier-syntax">h</span><span class="plain-syntax">.</span><span class="identifier-syntax">level</span><span class="plain-syntax"> - </span><span class="constant-syntax">1</span><span class="plain-syntax">] .. </span><span class="string-syntax">" - "</span><span class="plain-syntax"> .. </span><span class="identifier-syntax">Writer</span><span class="plain-syntax">.</span><span class="identifier-syntax">Inlines</span><span class="plain-syntax">(</span><span class="identifier-syntax">h</span><span class="plain-syntax">.</span><span class="identifier-syntax">content</span><span class="plain-syntax">)</span>
 <span class="identifier-syntax">end</span>
 </pre>
-<p class="commentary firstcommentary"><a id="SP13" class="paragraph-anchor"></a><b>&#167;13. Lists.</b>Since Markdown and Pandoc don't preserve indents, we use lists to represent
+<p class="commentary firstcommentary"><a id="SP14" class="paragraph-anchor"></a><b>&#167;14. Lists.</b>Since Markdown and Pandoc don't preserve indents, we use lists to represent
 indented blocks.
 </p>
 
@@ -216,7 +221,7 @@ indented blocks.
 
 <span class="identifier-syntax">Writer</span><span class="plain-syntax">.</span><span class="identifier-syntax">Block</span><span class="plain-syntax">.</span><span class="identifier-syntax">OrderedList</span><span class="plain-syntax"> = </span><span class="identifier-syntax">Writer</span><span class="plain-syntax">.</span><span class="identifier-syntax">Block</span><span class="plain-syntax">.</span><span class="identifier-syntax">BulletList</span>
 </pre>
-<p class="commentary firstcommentary"><a id="SP14" class="paragraph-anchor"></a><b>&#167;14. </b>And then we have to make sure that Pandoc does not insert extra blank lines
+<p class="commentary firstcommentary"><a id="SP15" class="paragraph-anchor"></a><b>&#167;15. </b>And then we have to make sure that Pandoc does not insert extra blank lines
 before lists.
 </p>
 
@@ -236,7 +241,7 @@ before lists.
 
 </pre>
 <nav role="progress"><div class="progresscontainer">
-    <ul class="progressbar"><li class="progressprevoff">&#10094;</li><li class="progresscurrent">wrtr</li><li class="progresssection"><a href="rdr.html">rdr</a></li><li class="progressnext"><a href="rdr.html">&#10095;</a></li></ul></div>
+    <ul class="progressbar"><li class="progressprev"><a href="rdr.html">&#10094;</a></li><li class="progresssection"><a href="rdr.html">rdr</a></li><li class="progresscurrent">wrtr</li><li class="progressnextoff">&#10095;</li></ul></div>
 </nav><!-- End of weave -->
 
 		</main>

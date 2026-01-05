@@ -8,5 +8,5 @@ Language: Lua
 "This Pandoc plugin consists of a reader, which can read Inform 7 source files into Pandoc's AST format, and a writer, which can write a Pandoc AST to Inform 7 source code."
 
 Sections
-    Writer
     Reader
+    Writer

@@ -2,6 +2,11 @@ Writer.
 
 A Pandoc writer.
 
+@h Usage.
+
+= (text)
+pandoc --from=markdown+lists_without_preceding_blankline-smart --to=inform7.lua "examples/Cloak of Darkness.ni.md"
+
 @h Setup.
 
 @ First, we avoid some boilerplate using the //scaffolding -> https://pandoc.org/lua-filters.html#module-pandoc.scaffolding// module.

@@ -5,8 +5,8 @@ Language: Lua
 
 @h Inweb-flavoured Markdown.
 
-The [foundation](https://ganelson.github.io/inweb/foundation-module/#5) library for [Inweb](https://ganelson.github.io/inweb/) defines a custom Markdown variant
-called [Inweb-flavoured Markdown](https://ganelson.github.io/inweb/foundation-module/5-mv.html)
+The //foundation -> https://ganelson.github.io/inweb/foundation-module/#5// library for //Inweb -> https://ganelson.github.io/inweb// defines a custom Markdown variant
+called //Inweb-flavoured Markdown -> https://ganelson.github.io/inweb/foundation-module/5-mv.html#SP7//
 (IWFM), which is used to write Inweb webs.
 
 This Pandoc reader parses IWFM.
